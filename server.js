@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://localhost/week18hw");
+mongoose.connect("MONGO_KEY");
 var db = mongoose.connection;
 
 // Show mongoose errors
@@ -83,9 +83,7 @@ app.get("/scrape", function(req, res) {
             });
         });
     });
-
     res.send("Scrape Complete");
-    res.redirect("/");
 });
 
 // get the articles from mongoDB
