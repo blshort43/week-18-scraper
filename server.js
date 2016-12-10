@@ -4,6 +4,12 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
+var AWS = require('aws-sdk');
+AWS.config.region = 'us-east-1';
+AWS.config.accessKeyId = process.env.MONGODB_URI
+AWS.config.secretAccessKey = process.env['']
+var s3 = new AWS.S3();
+
 // Note and Article models
 var Note = require("./models/Note.js");
 var Article = require("./models/Article.js");
@@ -31,7 +37,7 @@ app.use(express.static("public"));
 
 // Database configuration with mongoose
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/week18hw");
+mongoose.connect(s3 || "mongodb://localhost/week18hw");
 var db = mongoose.connection;
 
 // Show mongoose errors
