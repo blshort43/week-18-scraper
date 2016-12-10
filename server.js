@@ -32,8 +32,8 @@ app.use(express.static("public"));
 // Database configuration with mongoose
 var AWS = require('aws-sdk');
 AWS.config.region = 'us-east-1';
-AWS.config.accessKeyId = process.env.MONGODB_URI
-
+AWS.config.accessKeyId = process.env.S3_KEY
+AWS.config.secretAccessKey = process.env.S3_SECRET
 // This will also work:
 // AWS.config.secretAccessKey = process.env['S3_SECRET']
 var s3 = new AWS.S3();
