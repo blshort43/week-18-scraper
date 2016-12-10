@@ -30,8 +30,11 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 // Database configuration with mongoose
+var AWS = require('aws-sdk');
+AWS.config.secretAccessKey = process.env['MONGODB_URI']
+var s3 = new AWS.S3();
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/week18hw");
+mongoose.connect(process.env.s3 || "mongodb://localhost/week18hw");
 var db = mongoose.connection;
 
 // Show mongoose errors
