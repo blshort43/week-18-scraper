@@ -30,9 +30,15 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 // Database configuration with mongoose
-S3Handler = new S3Handler(System.getenv("MONGODB_URI"), System.getenv("MONGODB_URI"))
+var AWS = require('aws-sdk');
+AWS.config.region = 'us-east-1';
+AWS.config.accessKeyId = process.env.MONGODB_URI
 
-mongoose.connect(process.env.S3Handler || "mongodb://localhost/week18hw");
+// This will also work:
+// AWS.config.secretAccessKey = process.env['S3_SECRET']
+var s3 = new AWS.S3();
+
+mongoose.connect(process.env.s3 || "mongodb://localhost/week18hw");
 var db = mongoose.connection;
 
 // Show mongoose errors
