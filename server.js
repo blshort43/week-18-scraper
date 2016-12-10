@@ -38,7 +38,7 @@ AWS.config.secretAccessKey = process.env.S3_SECRET
 // AWS.config.secretAccessKey = process.env['S3_SECRET']
 var s3 = new AWS.S3();
 
-mongoose.connect(process.env.s3 || "mongodb://localhost/week18hw");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/week18hw");
 var db = mongoose.connection;
 
 // Show mongoose errors
