@@ -31,7 +31,7 @@ app.use(express.static("public"));
 
 // Database configuration with mongoose
 
-mongoose.connect(MONGODB_URI || "mongodb://localhost/week18hw");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/week18hw");
 var db = mongoose.connection;
 
 // Show mongoose errors
