@@ -56,7 +56,7 @@ db.once("open", function() {
 
 //Index route
 app.get("/", function(req, res) {
-    res.send(index.html)
+    res.send("/index.html")
 });
 
 // Get request to scrape a website
