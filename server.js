@@ -30,11 +30,12 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 // Database configuration with mongoose
+var databaseUri = "mongodb://localhost/week18hw";
 
 if (process.env.MONGODB_URI){
-    connection = mongoose.connect(process.env.MONGODB_URI);
+    mongoose.connect(process.env.MONGODB_URI);
 }else{
-    mongoose.connect("mongodb://localhost/week18hw");
+    mongoose.connect(databaseUri);
 }
 
 var db = mongoose.connection;
